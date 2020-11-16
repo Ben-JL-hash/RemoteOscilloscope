@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <style>
+            @import url(style.css);
+            p.highlight {
+                color: red;
+            }
+            svg {
+                background-color: rgb(41, 41, 36);
+            }
+            canvas {
+                background-color:  rgb(41, 41, 36);
+                height: 400px;
+                width: 960px;
+            }
+            .column {
+            float: left;
+            width: 33.33%;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+            content: "";
+            display: table;
+            clear: both;
+            }
+        </style>
+        <script type="module" src="oscilloscopeClient.js"></script>
+    </head>
+    <body>
+        <h1>Remote High Performance Oscilloscope Display</h1>
+        <canvas id="canvTest" width="1920px" height="800px">
+        </canvas>
+    </body>
+    <div class="row">
+        <div class="column">
+            Frames per Second:
+            <br>
+            <input type="text" id="samplesPerSecond_id" value="25"> 
+            <br>
+            <br>
+        </div>
+        <div class="column">
+            Gain:
+            <br>
+            <input type="text" id="gain_id" value="1"> 
+            <br>
+            <br>
+
+        </div>
+        <div class="column">
+            <button id="initialiseBtn">Start simulation</button> 
+            <br>
+            <br>
+            <label for="DataSet_id">DataSet:</label>
+            <select name="DataSet" id="DataSet_id">
+              <option value="0">EEG Z-band Noise</option>
+              <option value="1">ECG</option>
+              <option value="2">-SinWave</option>
+              <option value="3">RenderTest</option>
+            </select>
+        </div>
+    </div>
+</html>
